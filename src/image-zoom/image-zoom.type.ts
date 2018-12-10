@@ -15,13 +15,6 @@ interface IOnMove {
   zoomCurrentDistance: number;
 }
 
-export interface IOnClick {
-  locationX: number,
-  locationY: number,
-  pageX: number,
-  pageY: number
-}
-
 export class Props {
   /**
    * 操作区域宽度
@@ -52,11 +45,6 @@ export class Props {
    * 多手指是否能缩放
    */
   public pinchToZoom?: boolean = true;
-
-  /**
-   * 双击能否放大
-   */
-  public enableDoubleClickZoom?: boolean = true;
 
   /**
    * 单击最大位移
@@ -97,6 +85,11 @@ export class Props {
   public enableSwipeDown?: boolean = false;
 
   /**
+   * for enabling bouncing back to image when overscrolling horizontally
+   */
+  public enableHorizontalBounce?: boolean = false;
+
+  /**
    * for disabling focus on image center if user doesn't want it
    */
   public enableCenterFocus?: boolean = true;
@@ -114,7 +107,7 @@ export class Props {
   /**
    * 单击的回调
    */
-  public onClick?: (eventParams: IOnClick) => void = () => {
+  public onClick?: () => void = () => {
     //
   };
 
